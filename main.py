@@ -6,14 +6,18 @@ import sys, random
 import threading
 
 if len(sys.argv) != 3:
-    print("Usage: kahootspam.py <game pin> <number of bots>")
-    sys.exit()
+    gamepin = input('Game PIN: ')
+    numofthreads = input('# of bots: ')
+else:
+    numofthreads = int(sys.argv[2])
+    gamepin = sys.argv[1]
+    
 
 options = ChromeOptions()
 options.binary_location = '/usr/bin/chromium'
 options.add_argument('headless')
 
-numofthreads = int(sys.argv[2])
+#numofthreads = int(sys.argv[2])
 driver_count = 0
 pin_count = 0
 username_count = 0
@@ -28,7 +32,7 @@ def new_game(i):
     driver_count+= 1
     sleep(3)
     try:
-        driver.find_element_by_id('inputSession').send_keys(sys.argv[1])
+        driver.find_element_by_id('inputSession').send_keys(gamepin)
         driver.find_element_by_class_name('btn-greyscale').click()
         pin_count+= 1
         sleep(3)
