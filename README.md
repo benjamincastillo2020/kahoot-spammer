@@ -5,4 +5,5 @@ Well, even if it barely works, here it is!
 `Usage: kahootspam.py <game pin> <number of bots>`
    
    Requirements: Python 3, Selenium Webdriver, Chromium (not Chrome) for chromedriver
+**ITS REALLY SLOW**
  
